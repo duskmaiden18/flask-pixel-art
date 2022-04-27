@@ -15,7 +15,7 @@ def generator():
     if form.validate_on_submit():
         image = form.image.data
         block_size = form.block_size.data
-        image_name = image.filename[:-4]
+        image_name, image_format = image.filename[:-4], image.filename[-4:]
 
         img = Image.open(image)
 
@@ -26,8 +26,9 @@ def generator():
         res = small_img.resize(img.size, Image.NEAREST)
 
         # Save output image
-        filename = f'{image_name}_{block_size}x{block_size}.png'
-        res.save('static/images/' + filename)
+        filename = f'{image_name}_{block_size}x{block_size}{image_format}'
+        img_path = 'images/' + filename
+        res.save('static/' + img_path)
 
-        return render_template('result.html', img=img)
+        return render_template('result.html', img_path=img_path)
     return render_template('generator.html', form=form)
