@@ -1,4 +1,4 @@
-from app import app, db
+from app import app, db, celery
 from flask import render_template, redirect, url_for, request
 from PIL import Image
 import os
@@ -45,4 +45,13 @@ def download(pic_id):
     pic.downloaded = True
     db.session.commit()
     return ''
+
+#In terminal: flask shell
+#celery -A app.celery worker --loglevel=info --pool=eventlet
+
+#On WSL(Redis): sudo service redis-server start
+#redis-cli
+@celery.task
+def add(x, y):
+    return x+y
 
