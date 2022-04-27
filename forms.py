@@ -7,5 +7,3 @@ class LoadImgForm(FlaskForm):
     image = FileField('Load Image', validators=[FileRequired(), FileAllowed(['jpg', 'png'], 'Images only!')])
     block_size = IntegerField('Block size', validators=[NumberRange(min=2, max=80)])
     submit = SubmitField('Submit')
-
-

@@ -32,3 +32,4 @@ def generator():
 
         return render_template('result.html', img_path=img_path)
     return render_template('generator.html', form=form)
+
