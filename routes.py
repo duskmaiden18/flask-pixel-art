@@ -1,8 +1,10 @@
-from app import app
-from flask import render_template, redirect, url_for
+from app import app, db
+from flask import render_template, redirect, url_for, request
 from PIL import Image
+import os
 
 from forms import *
+from models import *
 
 @app.route('/')
 @app.route('/index')
@@ -30,6 +32,16 @@ def generator():
         img_path = 'images/' + filename
         res.save('static/' + img_path)
 
-        return render_template('result.html', img_path=img_path)
+        pic = Picture(name=filename, path=img_path)
+        db.session.add(pic)
+        db.session.commit()
+
+        return render_template('result.html', pic=pic)
     return render_template('generator.html', form=form)
+
+@app.route('/download/<int:pic_id>')
+def download(pic_id):
+    pic = Picture.query.get(pic_id)
+    pic.downloaded = True
+    return ''
 

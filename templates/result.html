@@ -6,8 +6,20 @@
 </head>
 <body>
 Result
-<img src="{{ url_for('static', filename=img_path) }}">
-<a href="{{ url_for('static', filename=img_path) }}" download>Download</a>
+<img src="{{ url_for('static', filename=pic.path) }}">
+<a href="{{ url_for('static', filename=pic.path) }}" id="download_img" download>Download</a>
 <a href="{{ url_for('index') }}">Cancel</a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#download_img').on('click', function(e) {
+            $.getJSON('{{ url_for('download', pic_id=pic.id) }}',
+                function(data) {
+              //do nothing
+            });
+          });
+        });
+</script>
 </body>
 </html>
