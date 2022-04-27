@@ -43,5 +43,6 @@ def generator():
 def download(pic_id):
     pic = Picture.query.get(pic_id)
     pic.downloaded = True
+    db.session.commit()
     return ''
 

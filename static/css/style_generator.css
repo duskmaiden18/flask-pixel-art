@@ -1,0 +1,17 @@
+.intro {
+    font-size: 14pt;
+    border: 2px solid #ccb9bc;
+    border-radius: 20px;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 10px;
+    margin: 200px auto;
+    background-color: #ffebee;
+}
+
+.intro h1 {
+    margin-bottom: 20px;
+}
+

@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Result</title>
+    <link href="{{ url_for('static', filename='css/style_results.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-Result
-<img src="{{ url_for('static', filename=pic.path) }}">
-<a href="{{ url_for('static', filename=pic.path) }}" id="download_img" download>Download</a>
-<a href="{{ url_for('index') }}">Cancel</a>
+<div class="intro">
+    <h1>Results</h1>
+    <img src="{{ url_for('static', filename=pic.path) }}">
+    <div class="buttons">
+        <a href="{{ url_for('static', filename=pic.path) }}" id="download_img" download>Download</a>
+        <a href="{{ url_for('index') }}">Cancel</a>
+    </div>
+</div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type=text/javascript>

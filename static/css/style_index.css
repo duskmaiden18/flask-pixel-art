@@ -1,0 +1,14 @@
+h1 {
+    background-color: #ffebee;
+}
+
+.intro {
+    margin-top: 300px;
+    text-align: center;
+}
+
+.intro a {
+    text-decoration: none;
+	color: inherit;
+	font-size: 20pt;
+}
